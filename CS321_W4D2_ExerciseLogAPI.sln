@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS321_W4D2_ExerciseLogAPI", "CS321_W4D2_ExerciseLogAPI\CS321_W4D2_ExerciseLogAPI.csproj", "{ABA5FF78-BCA2-4226-9503-38356F4006A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS321_W4D2_ExerciseLogAPI.Core", "CS321_W4D2_ExerciseLogAPI.Core\CS321_W4D2_ExerciseLogAPI.Core.csproj", "{81CEABA8-A7F8-444A-A0CE-86746502E19C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS321_W4D2_ExerciseLogAPI.Infrastructure", "CS321_W4D2_ExerciseLogAPI.Infrastructure\CS321_W4D2_ExerciseLogAPI.Infrastructure.csproj", "{4D922DFE-207A-4BDE-877A-419BAB0FA894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{ABA5FF78-BCA2-4226-9503-38356F4006A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA5FF78-BCA2-4226-9503-38356F4006A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA5FF78-BCA2-4226-9503-38356F4006A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CEABA8-A7F8-444A-A0CE-86746502E19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CEABA8-A7F8-444A-A0CE-86746502E19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CEABA8-A7F8-444A-A0CE-86746502E19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CEABA8-A7F8-444A-A0CE-86746502E19C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D922DFE-207A-4BDE-877A-419BAB0FA894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D922DFE-207A-4BDE-877A-419BAB0FA894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D922DFE-207A-4BDE-877A-419BAB0FA894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D922DFE-207A-4BDE-877A-419BAB0FA894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
