@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CS321_W4D2_ExerciseLogAPI.Core.Models;
+using CS321_W4D2_ExerciseLogAPI.Core.Services;
+using CS321_W4D2_ExerciseLogAPI.Infrastructure;
+using CS321_W4D2_ExerciseLogAPI.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,9 +30,21 @@ namespace CS321_W4D2_ExerciseLogAPI
         public void ConfigureServices(IServiceCollection services)
         {
             // TODO: AddDbContext
+            services.AddDbContext<AppDbContext>();
+
             // TODO: register repositories for injection
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddScoped<IActivityTypeRepository, ActivityTypeRepository>();
+
             // TODO: register services for injection
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IActivityTypeService, ActivityTypeService>();
+            services.AddScoped<IActivityService, ActivityService>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(optionsBuilder =>
+            {
+                optionsBuilder.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            }); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

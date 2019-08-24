@@ -35,8 +35,9 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure
                 new Activity { Id = 1, UserId = 1, ActivityTypeId = 1, Date = new DateTime(2019, 6, 19), Distance = 3, Duration = 30, Notes = "Hot!!!!" }
             );
 
-            modelBuilder.Entity<ActivityType>().HasData(
-                new ActivityType { Id = 1, Name = "Test Type-Running", RecordType = RecordType.DurationOnly });
+            //modelBuilder.Entity<ActivityType>().HasData(
+            //    new ActivityType {Id = 0, Name = "Test Type-Running", RecordType = RecordType.DurationOnly });
+        }
         }
     }
-}
+

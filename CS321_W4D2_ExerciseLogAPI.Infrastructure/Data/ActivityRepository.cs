@@ -27,42 +27,45 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         public Activity Get(int id)
         {
             return _dbContext.Activities
-                .Include(activity => Activity.)
-                .SingleOrDefault(user => user.Id == id);
+                .Include(activity => activity.User)
+                .Include(activity => activity.ActivityType)
+                .SingleOrDefault(activity => activity.Id == id);
         }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Activity> GetAll()
         {
-            return _dbContext.Users
-                .Include(user => user.Activities)
+            return _dbContext.Activities
+                .Include(activity => activity.User)
+                .Include(activity => activity.ActivityType)
                 .ToList();
         }
 
-        public void Remove(User user)
+        public void Remove(Activity activity)
         {
-            _dbContext.Users.Remove(user);
+            _dbContext.Activities.Remove(activity);
             _dbContext.SaveChanges();
         }
 
-        public User Update(User updatedUser)
+        public Activity Update(Activity updatedActivity)
         {
-            var currentUser = _dbContext.Users.FirstOrDefault(x => x.Id == updatedUser.Id);
+            var currentActivity = _dbContext.Activities.FirstOrDefault(x => x.Id == updatedActivity.Id);
 
-            if (currentUser == null) return null;
+            if (currentActivity == null) return null;
 
-            _dbContext.Entry(currentUser)
+            _dbContext.Entry(currentActivity)
                 .CurrentValues
-                .SetValues(updatedUser);
+                .SetValues(updatedActivity);
 
-            _dbContext.Update(currentUser);
+            _dbContext.Update(currentActivity);
             _dbContext.SaveChanges();
-            return currentUser;
+            return currentActivity;
         }
-        public IEnumerable<User> GetActivitiesforUser(int userId)
+        public IEnumerable<Activity> UsersforActivity(int userId)
         {
-            return _dbContext.Users
-                .Include(user => user.Activities)
-                .Where(u => u.Id == userId).ToList();
+            return _dbContext.Activities
+                .Include(activity => activity.User)
+                .Include(activity => activity.ActivityType)
+                .Where(a => a.Id == userId).ToList();
         }
     }
 }
