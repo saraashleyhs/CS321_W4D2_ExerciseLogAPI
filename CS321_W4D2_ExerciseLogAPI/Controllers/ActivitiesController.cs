@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CS321_W4D2_ExerciseLogAPI.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using CS321_W4D2_ExerciseLogAPI.ApiModels;
+using CS321_W4D2_ExerciseLogAPI.Core.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,15 +30,17 @@ namespace CS321_W4D2_ExerciseLogAPI.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var currentActivity = _activityService.Get(id);
+            return Ok(currentActivity);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]Activity acitivty)
         {
+
         }
 
         // PUT api/values/5
